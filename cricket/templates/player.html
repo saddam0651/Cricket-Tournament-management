@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Players
+{% endblock %}
+
+{% block body %}
+<br>
+<section class="breadcrumb-section section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h1>Players</h1>
+                </div>
+            </div>
+            <div class="col-12">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb" style="background: #fff;color: #fff;">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Players</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        {% for player in players %}
+        <div class="col-sm-3 mt-3">
+            <div class="card">
+                    <center><img class="card-img-top" src="{{ player.imageUrl.url }}" alt="Card image cap" style="width:100px;"></center> 
+                <div class="card-body">
+                    <center><h5 class="card-title">{{ player.firstName }} {{ player.lastName }}</h5></center>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Team : {{ player.team.clubState }} {{ player.team.name }}</li>
+                    <li class="list-group-item">Jersey No : {{ player.jerseyNumber }}</li>
+                    <li class="list-group-item">Country : {{ player.country }}</li>
+                    <li class="list-group-item">Role : {{ player.role }}</li>
+                    <li class="list-group-item">Matches : {{ player.matches }}</li>
+                    <li class="list-group-item">Runs : {{ player.runs }}</li>
+                    <li class="list-group-item">Wickets : {{ player.wickets }}</li>
+                    <li class="list-group-item">Highest Score : {{ player.highestScore }}</li>
+                    <li class="list-group-item">Fifties : {{ player.fifties }}</li>
+                    <li class="list-group-item">Hundreds : {{ player.hundreds }}</li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+    
+{% endblock js %}

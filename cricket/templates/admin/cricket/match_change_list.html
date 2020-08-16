@@ -1,0 +1,10 @@
+{% extends 'admin/change_list.html' %}
+{% block object-tools %}
+    <form method="POST" action="randomMatch/">
+        {% csrf_token %} 
+        <button type="submit" class="button">Create Random Match</button>
+    </form>
+    <br>
+    
+    {{ block.super }}
+{% endblock object-tools %}

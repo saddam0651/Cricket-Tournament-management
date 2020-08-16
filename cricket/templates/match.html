@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Matches
+{% endblock %}
+
+{% block body %}
+<br>
+<section class="breadcrumb-section section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h1>Matches</h1>
+                </div>
+            </div>
+            <div class="col-12">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb" style="background: #fff;color: #fff;">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Matches</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        {% for match in matches %}
+        <div class="col-sm-4 mt-4">
+            <div class="card"  style="height:330px">
+                <a href="/Players/{{ match.team1.id }}">
+                    <center><img class="card-img-top" src="{{ match.team1.logoUrl.url }}" alt="Card image cap" style="width:75px;"></center> 
+                </a>
+                <div class="card-body">
+                    <center>
+                        <h5 class="card-title">{{ match.team1.clubState }} {{ match.team1.name }}</h5>
+                        <h4 class="card-title">Vs</h4>
+                        <h5 class="card-title">{{ match.team2.clubState }} {{ match.team2.name }}</h5>
+                    </center>
+                </div>
+                <a href="/Players/{{ match.team2.id }}">
+                    <center><img class="card-img-top" src="{{ match.team2.logoUrl.url }}" alt="Card image cap" style="width:75px;"></center> 
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+    
+{% endblock js %}
